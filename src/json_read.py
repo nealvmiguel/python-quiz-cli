@@ -31,7 +31,14 @@ def open_json(path, level):
         
         
 
-def process_quiz_data(data,level):
+def process_quiz_data(data,level) -> None:
+    """
+    Process quiz questions and calculate the score
+
+    Args:
+        data (json): _description_
+        level (string): _description_
+    """
     score = 0
     current_index = 0
     questions = data[level]
@@ -57,9 +64,29 @@ def process_quiz_data(data,level):
         
      
     print(f"Your total score is {score}/{len(questions)}")
+    
+    quiz_summary(user_answers, questions)
+    
+    
+    
+           
+def quiz_summary(user_answers, questions) -> None:
+    for i, question  in enumerate(questions):
+        user_answer = user_answers[i]
+        correct_answer = question['answer']
+            
+        print(f"\nQuestion {i+1}: {question['question']}")
+            
+        for key, value in question['options'].items():
+            print(f"  {key}) {value}")
+            
+        if user_answer == correct_answer:
+            print(f"]\n✅ Your answer: {user_answer} (CORRECT)")
+        else:
+            print(f"\n❌ Your answer: {user_answer} (WRONG)")
 
  
 
 def clear_screen():
-    """Clears the terminal screen"""
+    """Clears the terminal screen (cross-platform)."""
     os.system('cls' if os.name == 'nt' else 'clear')
