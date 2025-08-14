@@ -1,5 +1,5 @@
 import json
-import os 
+
 
 def open_json(path, level):
     
@@ -39,11 +39,12 @@ def process_quiz_data(data,level) -> None:
         data (json): _description_
         level (string): _description_
     """
+    
     score = 0
     current_index = 0
     questions = data[level]
     user_answers = []
-    
+
     while current_index < len(questions):
         question= questions[current_index]
         
@@ -54,6 +55,7 @@ def process_quiz_data(data,level) -> None:
             
         user_input_answer = input("\nAnswer: ")
         
+  
         
         user_answers.append(user_input_answer)
         if user_input_answer == question['answer']:
