@@ -45,6 +45,19 @@ def main():
     clear_screen()
     quiz.start_quiz()
     
+    retry = input("\nWanna go again? Yes / No: ").lower()
+    
+    if retry == "yes":
+        clear_screen()
+        main()
+    else:
+        print("Okay come again")
+    
+    
+    
+    
+
+    
     
 
 

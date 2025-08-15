@@ -2,13 +2,12 @@ import json
 
 class Question:
     
-    def __init__(self, level, question, option, answer):
+    def __init__(self, level: str, question: dict, option: str, answer: str):
         self.level = level
         self.question = question
         self.option = option
         self.answer = answer
         
-
 
 def open_question_json(path):
     
